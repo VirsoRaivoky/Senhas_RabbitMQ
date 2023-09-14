@@ -34,6 +34,10 @@
             this.senha = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.nameList = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nameField = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +90,7 @@
             this.panel1.Controls.Add(this.senha);
             this.panel1.Location = new System.Drawing.Point(279, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 204);
+            this.panel1.Size = new System.Drawing.Size(250, 194);
             this.panel1.TabIndex = 4;
             // 
             // button1
@@ -99,11 +103,50 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // nameList
+            // 
+            this.nameList.Location = new System.Drawing.Point(21, 49);
+            this.nameList.Name = "nameList";
+            this.nameList.Size = new System.Drawing.Size(214, 362);
+            this.nameList.TabIndex = 6;
+            this.nameList.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(21, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(209, 35);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Lista de chamada";
+            // 
+            // nameField
+            // 
+            this.nameField.Location = new System.Drawing.Point(267, 265);
+            this.nameField.Name = "nameField";
+            this.nameField.Size = new System.Drawing.Size(274, 27);
+            this.nameField.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(363, 232);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 30);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Nome";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.nameField);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nameList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radioButton2);
@@ -125,5 +168,9 @@
         private Label senha;
         private Panel panel1;
         private Button button1;
+        private RichTextBox nameList;
+        private Label label2;
+        private TextBox nameField;
+        private Label label3;
     }
 }

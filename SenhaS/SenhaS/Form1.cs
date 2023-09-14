@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -10,12 +11,15 @@ namespace SenhaS
         private IModel channel;
         private IModel respostaChannel;
 
-    
-
+        int senhaAtual;
         public Form1()
         {
             InitializeComponent();
             InitializeRabbitMQ();
+        }
+        private void Form1_Closed(object sender, System.EventArgs e)
+        {
+            connection.Close();
         }
 
         private void InitializeRabbitMQ()
@@ -64,6 +68,16 @@ namespace SenhaS
             var body = Encoding.UTF8.GetBytes(message);
 
             channel.BasicPublish(exchange: string.Empty, routingKey: "senhas", basicProperties: null, body: body);
+
+            senhaAtual++;
+
+            var nome = nameField.Text;
+            nameField.Clear();
+
+            nameList.Invoke((MethodInvoker)(() =>
+            {
+                nameList.AppendText($"{senhaAtual} - " + $"{nome} " + $"({tipoFila})" + Environment.NewLine);
+            }));
         }
         private void label2_Click(object sender, EventArgs e)
         {

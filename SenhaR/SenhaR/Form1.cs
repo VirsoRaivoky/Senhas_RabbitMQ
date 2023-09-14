@@ -14,8 +14,8 @@ namespace SenhaR
 
         private int senhaAtual;
 
-        private List<int> senhaPadrao = new List<int>();
-        private List<int> senhaPreferencial = new List<int>();
+        private List<int>? senhaPadrao = new List<int>();
+        private List<int>? senhaPreferencial = new List<int>();
 
 
         public Form1()
@@ -87,26 +87,34 @@ namespace SenhaR
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int senha;
+            int senha = 0;
 
-            if(senhaPreferencial.Count > 0)
+            try
             {
-                senha = senhaPreferencial[0];
-                senhaPreferencial.RemoveAt(0);
+
+                if (senhaPreferencial.Count > 0)
+                {
+                        senha = senhaPreferencial[0];
+                        senhaPreferencial.RemoveAt(0);
+                }
+                else
+                {
+                    senha = senhaPadrao[0];
+                    senhaPadrao.RemoveAt(0);
+                }
+                var resposta = senha.ToString();
+                var body = Encoding.UTF8.GetBytes(resposta);
+
+                channel.BasicPublish(
+                    exchange: string.Empty,
+                    routingKey: "senha_resposta",
+                    basicProperties: null,
+                    body: body);
             }
-            else
+            catch (Exception ex) 
             {
-                senha = senhaPadrao[0];
-                senhaPadrao.RemoveAt(0);
+                MessageBox.Show("Não há nenhuma senha", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            var resposta = senha.ToString();
-            var body = Encoding.UTF8.GetBytes(resposta);
-
-            channel.BasicPublish(exchange: string.Empty,
-                routingKey: "senha_resposta",
-                basicProperties: null,
-                body: body);
 
         }
 
