@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "xjLJYm56cJPU9D1ax5wugWuIbwBELYLkbHPfbeazMe344f4tlPXL/liz7SkRz7PwPaBchORjo12kjtgeNAkPKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Wilso\\Documents\\Projetos\\WebApi\\SenhaS\\SenhaS\\SenhaS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Wilso\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
+    "C:\\Users\\Wilso\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Wilso\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
